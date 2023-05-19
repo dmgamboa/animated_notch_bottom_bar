@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   /// Controller to handle PageView and also handles initial page
-  final _pageController = PageController(initialPage: 2);
+  final _pageController = PageController(initialPage: 0);
 
   int maxCount = 5;
 
@@ -69,8 +69,10 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.white,
               showLabel: false,
               notchColor: Colors.black87,
+              topRadius: 12,
+              bottomRadius: 10,
               bottomBarItems: [
-                const BottomBarItem(
+                BottomBarItem(
                   inActiveItem: Icon(
                     Icons.home_filled,
                     color: Colors.blueGrey,
@@ -81,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   itemLabel: 'Page 1',
                 ),
-                const BottomBarItem(
+                BottomBarItem(
                   inActiveItem: Icon(
                     Icons.star,
                     color: Colors.blueGrey,

@@ -48,6 +48,10 @@ class AnimatedNotchBottomBar extends StatefulWidget {
 
   double? width;
 
+  double? topRadius;
+
+  double? bottomRadius;
+
   AnimatedNotchBottomBar({
     Key? key,
     required this.pageController,
@@ -63,6 +67,8 @@ class AnimatedNotchBottomBar extends StatefulWidget {
     this.blurFilterY = 10.0,
     this.notchColor = Colors.white,
     this.width,
+    this.topRadius,
+    this.bottomRadius,
   }) : super(key: key);
 
   @override
@@ -139,6 +145,8 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
                                   color: widget.color,
                                   showShadow: widget.showShadow,
                                   notchColor: widget.notchColor,
+                                  topRadius: widget.topRadius,
+                                  bottomRadius: widget.bottomRadius,
                                 ),
                               ),
                             ),
@@ -185,12 +193,14 @@ class _AnimatedNotchBottomBarState extends State<AnimatedNotchBottomBar> {
   }
 
   double _firstItemPosition() {
-    return (_screenWidth - kMargin * 2) * 0.2;
+    return (_screenWidth - kMargin * 2) *
+        (0.36 - widget.bottomBarItems.length * 0.05);
   }
 
   double _lastItemPosition() {
     return _screenWidth -
-        (_screenWidth - kMargin * 2) * 0.2 -
+        (_screenWidth - kMargin * 2) *
+            (0.36 - widget.bottomBarItems.length * 0.05) -
         (kCircleRadius + kCircleMargin) * 2;
   }
 
